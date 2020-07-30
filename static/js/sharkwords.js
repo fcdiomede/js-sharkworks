@@ -13,8 +13,8 @@ let numWrong = 0;
 //
 const createDivsForChars = (word) => {
   // Replace this with your code
-  for (const char of word) {
-    $('#word-container').append(`<div class="letter-box ${char}"></div>`);
+  for (const letter of word) {
+    $('#word-container').append(`<div class="letter-box ${letter}"></div>`);
   }
 };
 
@@ -34,24 +34,26 @@ const generateLetterButtons = () => {
 // `buttonEl` is an `HTMLElement` object.
 //
 const disableLetterButton = (buttonEl) => {
-  // Replace this with your code
-  const button = $(buttonEl); 
   $(buttonEl).prop('disabled', true);
-  console.log(buttonEl);
 };
 
 
 // Return `true` if `letter` is in the word.
 //
 const isLetterInWord = (letter) => {
-  // Replace this with your code
+  const element = $(`div.${letter}`);
+  if (element[0] === undefined) {
+    return false;
+  } else {
+    return true;
+  }
 };
 
 
 // Called when `letter` is in word. Update contents of divs with `letter`.
 //
 const handleCorrectGuess = (letter) => {
-  // Replace this with your code
+  $(`div.${letter}`).html(letter);
 };
 
 
